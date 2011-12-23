@@ -88,12 +88,15 @@ let g:snips_author=snip_name.' <'.snip_mail.'>'
 let g:SuperTabDefaultCompletionType = "context"
 
 " Colorscheme
-colorscheme softblue
+colorscheme default
 
 "======================================================================
 " Configure GUI, if running
 "
 if has("gui_running")
+  " Colorscheme for gui
+  colorscheme softblue
+
   " Nice font
   set gfn=Inconsolata:h18
   
