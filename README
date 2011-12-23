@@ -1,0 +1,11 @@
+dbm-vim
+=======
+My personal vim configuration. Very preliminary, and much to learn!
+
+Bundles
+=======
+I use Vundle by gmarik to manage vim addons. You can get it from github:
+
+http://github.com/gmarik/vundle
+
+
