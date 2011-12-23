@@ -38,6 +38,9 @@ Bundle vundle_git
 " Snipmate
 Bundle "msanders/snipmate.vim.git"
 
+" My Snipmate extensions
+Bundle "drbenmorgan/dbm-snippets.vim.git"
+
 " Softblue colorscheme
 Bundle "softblue"
 
