@@ -13,6 +13,15 @@ syntax on
 
 
 " =====================================================================
+" Local setup - only works because we source this file from the main
+" vimrc file.
+"
+let thisdir = expand('<sfile>:p:h')
+exec 'set rtp+='.thisdir.'/vimfiles'
+exec 'set rtp+='.thisdir.'/vimfiles/after'
+
+
+" =====================================================================
 " Set up Vundle before anything else.
 " Uses ideas from gmarik's testing vimrc.
 "
@@ -89,6 +98,12 @@ let g:snips_author=snip_name.' <'.snip_mail.'>'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" OmniCompletion
+" Close preview window opened by omnicompletion on movement in insert mode
+" or when leaving insert mode 
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Colorscheme
 colorscheme default
