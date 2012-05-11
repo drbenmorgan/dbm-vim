@@ -18,6 +18,21 @@ also testing of new scripts/plugins (I am also just playing!).
 However, the main system used to provide add-ons is via bundles managed
 by Vundle (see below).
 
+One can "install" a main user vimrc file to perform this forwarding by
+running
+
+python install.py
+
+The install.py script being located alongside this README. This will
+backup any existing user vimrc to a file named
+
+.vimrcTIMEOFBACKUP.dbmbak
+
+where TIMEOFBACKUP is a number consisting of the sequence 
+DayMonthYearHourMinuteSecond.
+
+TODO: Get vim to run post install to automatically install/update bundles?
+
 
 Bundles
 =======
