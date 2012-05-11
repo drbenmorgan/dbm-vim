@@ -83,10 +83,11 @@ def make_backupvimrc():
     """backup user's current vimrc file
     """
     current_vimrc = vimrc_path()
-    vimrc_dir = os.path.dirname(current_vimrc)
-    vimrc_file = os.path.basename(current_vimrc)
-    vimrc_backup = vimrc_file+time.strftime('%d%m%y%H%M%S')+".dbmbak"
-    shutil.copy(current_vimrc, os.path.join(vimrc_dir, vimrc_backup))
+    if os.path.exists(current_vimrc):
+        vimrc_dir = os.path.dirname(current_vimrc)
+        vimrc_file = os.path.basename(current_vimrc)
+        vimrc_backup = vimrc_file+time.strftime('%d%m%y%H%M%S')+".dbmbak"
+        shutil.copy(current_vimrc, os.path.join(vimrc_dir, vimrc_backup))
 
 
 def main_impl():
