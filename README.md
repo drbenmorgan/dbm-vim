@@ -7,7 +7,7 @@ to learn!
 Setup
 =====
 The vimrc file is intended to be sourced by the main user vimrc file
-($HOME/.vimrc or $HOME/_vimrc). Thies allows the main vimrc to be very simple,
+($HOME/.vimrc or $HOME/_vimrc). This allows the main vimrc to be very simple,
 and also easily deployable across different platforms. 
 
 It also allows the vimrc file here to locate itself and hence to source
