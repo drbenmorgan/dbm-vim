@@ -116,7 +116,13 @@ if has("gui_running")
   colorscheme softblue
 
   " Nice font
-  set gfn=Inconsolata:h18
+  " Ouch, syntax is different on Mac and GTK2...
+  if has("macunix")
+    set gfn=Inconsolata:h18
+  else
+    set gfn=Inconsolata\ 14
+  endif
+  
   
   " No toolbar
   set guioptions-=T
