@@ -71,6 +71,9 @@ filetype plugin indent on    " required by Vundle...
 " =====================================================================
 " Main setup of Vim, including any loaded bundles
 "
+" Lines
+set number
+
 " History
 set history=50
 
@@ -107,6 +110,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Colorscheme
 colorscheme default
+highlight LineNr ctermfg=DarkGrey
 
 "======================================================================
 " Configure GUI, if running
@@ -122,7 +126,6 @@ if has("gui_running")
   else
     set gfn=Inconsolata\ 14
   endif
-  
   
   " No toolbar
   set guioptions-=T
