@@ -101,6 +101,7 @@ def main_impl():
     file_to_install = make_tempvimrc()
     make_backupvimrc()
     shutil.copy(file_to_install, vimrc_path())
+    os.remove(file_to_install)
 
 
 if __name__ == '__main__':
