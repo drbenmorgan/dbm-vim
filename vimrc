@@ -56,6 +56,12 @@ Bundle "softblue"
 " jellybeans colorscheme
 Bundle "nanotech/jellybeans.vim"
 
+" zenburn colorscheme
+Bundle "Zenburn"
+
+" Solarized colorscheme
+Bundle "altercation/vim-colors-solarized.git"
+
 " ConqueShell terminal emulator
 Bundle "Conque-Shell"
 
