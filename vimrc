@@ -123,7 +123,7 @@ highlight LineNr ctermfg=DarkGrey
 "
 if has("gui_running")
   " Colorscheme for gui
-  colorscheme softblue
+  colorscheme solarized
 
   " Nice font
   " Ouch, syntax is different on Mac and GTK2...
