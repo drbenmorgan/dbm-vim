@@ -114,9 +114,10 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" Colorscheme
+" Colorscheme defaults
 colorscheme default
 highlight LineNr ctermfg=DarkGrey
+set background=dark
 
 "======================================================================
 " Configure GUI, if running
