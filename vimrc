@@ -117,9 +117,8 @@ filetype plugin indent on    " required by Vundle...
 " =====================================================================
 " Colorscheme defaults - after bundles because chosen schemes are in
 " bundles!
-colorscheme jellybeans
-highlight LineNr ctermfg=DarkGrey
 set background=dark
+colorscheme jellybeans
 
 " =====================================================================
 " Configure GUI, if running
