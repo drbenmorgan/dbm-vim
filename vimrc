@@ -11,6 +11,39 @@ set nocompatible
 " Syntax highlighting
 syntax on
 
+" Lines
+set number
+
+" History
+set history=50
+
+" Make backups in tmp
+set backupdir=~/tmp/vim
+set backup
+
+" Use incremental search
+set incsearch
+
+" Status Line
+set laststatus=2
+set statusline=%t%m%y\%=[%l/%L][%c]
+
+" Tabs and Indents
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set smartindent
+
+" OmniCompletion
+" Close preview window opened by omnicompletion on movement in insert 
+" mode or when leaving insert mode 
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Auto commands
+" Identify Markdown files (don't think I'll be using Modula2...)
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
+
 
 " =====================================================================
 " Local setup - only works because we source this file from the main
@@ -19,7 +52,6 @@ syntax on
 let thisdir = expand('<sfile>:p:h')
 exec 'set rtp+='.thisdir.'/vimfiles'
 exec 'set rtp+='.thisdir.'/vimfiles/after'
-
 
 " =====================================================================
 " Set up Vundle before anything else.
@@ -46,6 +78,10 @@ Bundle vundle_git
 
 " Snipmate
 Bundle "msanders/snipmate.vim.git"
+let snip_name=substitute(system("git config --get user.name"), "\n", "", "g")
+let snip_mail=substitute(system("git config --get user.email"), "\n", "", "g")
+let g:snips_author=snip_name.' <'.snip_mail.'>'
+
 
 " My Snipmate extensions
 Bundle "drbenmorgan/dbm-snippets.vim.git"
@@ -67,59 +103,25 @@ Bundle "Conque-Shell"
 
 " SuperTab insert mode completions
 Bundle "ervandew/supertab"
+let g:SuperTabDefaultCompletionType = "context"
 
 " Google style indentation for C++
-Bundle "google.vim"
+" Use iveney's fork which renames the plugin correctly!
+Bundle "iveney/google.vim"
+
+" Tim Pope's fugitive plugin for git
+Bundle "tpope/vim-fugitive.git"
 
 filetype plugin indent on    " required by Vundle...
 
-
 " =====================================================================
-" Main setup of Vim, including any loaded bundles
-"
-" Lines
-set number
-
-" History
-set history=50
-
-" Make backups in tmp
-set backupdir=~/tmp/vim
-set backup
-
-" Use incremental search
-set incsearch
-
-" Status Line
-set laststatus=2
-set statusline=%t%m%y\%=[%l/%L][%c]
-
-" Tabs and Indents
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set smartindent
-
-" Snipmate
-let snip_name=substitute(system("git config --get user.name"), "\n", "", "g")
-let snip_mail=substitute(system("git config --get user.email"), "\n", "", "g")
-let g:snips_author=snip_name.' <'.snip_mail.'>'
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
-" OmniCompletion
-" Close preview window opened by omnicompletion on movement in insert mode
-" or when leaving insert mode 
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Colorscheme defaults
-colorscheme default
+" Colorscheme defaults - after bundles because chosen schemes are in
+" bundles!
+colorscheme jellybeans
 highlight LineNr ctermfg=DarkGrey
 set background=dark
 
-"======================================================================
+" =====================================================================
 " Configure GUI, if running
 "
 if has("gui_running")
@@ -140,7 +142,6 @@ if has("gui_running")
   " Useful cut'n'paste
   set guioptions+=a
 endif
-
 
 "======================================================================
 " Disable unsafe commands in local .vimrc files
