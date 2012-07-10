@@ -121,19 +121,30 @@ filetype plugin indent on    " required by Vundle...
 " Colorscheme defaults - after bundles because chosen schemes are in
 " bundles!
 set background=dark
-colorscheme jellybeans
+if &t_Co == 256
+  colorscheme jellybeans
+else
+  colorscheme default
+endif
 
 " =====================================================================
 " Configure GUI, if running
 "
 if has("gui_running")
   " Colorscheme for gui
+  set background=dark
   colorscheme solarized
 
   " Nice font
   " Ouch, syntax is different on Mac and GTK2...
   if has("macunix")
-    set gfn=Inconsolata:h18
+    " Plus, Monaco for Lion, Inconsolata for Snow Leopard
+    let mymacver = system("sw_vers -productVersion")
+    if match(mymacver, "10.7.*") >= 0
+      set gfn=Monaco:h14
+    else
+      set gfn=Inconsolata:h18
+    endif
   else
     set gfn=Inconsolata\ 14
   endif
