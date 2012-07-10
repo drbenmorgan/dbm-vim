@@ -112,6 +112,9 @@ Bundle "iveney/google.vim"
 " Tim Pope's fugitive plugin for git
 Bundle "tpope/vim-fugitive.git"
 
+" Tim Pope's markdown syntax highlighting
+Bundle "tpope/vim-markdown.git"
+
 filetype plugin indent on    " required by Vundle...
 
 " =====================================================================
