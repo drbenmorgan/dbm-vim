@@ -44,6 +44,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Identify Markdown files (don't think I'll be using Modula2...)
 au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
 
+" Identify GNUmake fragments as make
+au BufRead,BufNewFile {*.gmk,*.gmake,*.gnumake} set ft=make
 
 " =====================================================================
 " Local setup - only works because we source this file from the main
