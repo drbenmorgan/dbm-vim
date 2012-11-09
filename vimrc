@@ -117,6 +117,10 @@ Bundle "tpope/vim-fugitive.git"
 " Tim Pope's markdown syntax highlighting
 Bundle "tpope/vim-markdown.git"
 
+" vim-pandoc for writing and editing documents in pandoc markdown
+" Disable for now...
+" Bundle "vim-pandoc/vim-pandoc.git"
+
 filetype plugin indent on    " required by Vundle...
 
 " =====================================================================
