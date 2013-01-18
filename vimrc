@@ -118,8 +118,8 @@ Bundle "tpope/vim-fugitive.git"
 Bundle "tpope/vim-markdown.git"
 
 " vim-pandoc for writing and editing documents in pandoc markdown
-" Disable for now...
-" Bundle "vim-pandoc/vim-pandoc.git"
+Bundle "vim-pandoc/vim-pandoc.git"
+let g:pandoc_no_folding = 1
 
 filetype plugin indent on    " required by Vundle...
 
