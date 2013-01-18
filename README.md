@@ -21,14 +21,16 @@ by Vundle (see below).
 One can "install" a main user vimrc file to perform this forwarding by
 running
 
-python install.py
+```sh
+$ python install.py
+```
 
-The install.py script being located alongside this README. This will
+The `install.py` script being located alongside this README. This will
 backup any existing user vimrc to a file named
 
-.vimrcTIMEOFBACKUP.dbmbak
+    .vimrcTIMEOFBACKUP.dbmbak
 
-where TIMEOFBACKUP is a number consisting of the sequence 
+where `TIMEOFBACKUP` is a number consisting of the sequence 
 DayMonthYearHourMinuteSecond.
 
 TODO: Get vim to run post install to automatically install/update bundles?
