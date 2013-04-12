@@ -149,7 +149,7 @@ if has("gui_running")
     if match(mymacver, "10.7.*") >= 0
       set gfn=Monaco:h14
     else
-      set gfn=Inconsolata:h18
+      set gfn=Monaco:h14
     endif
   else
     set gfn=Inconsolata\ 14
