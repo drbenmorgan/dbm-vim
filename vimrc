@@ -48,6 +48,22 @@ au BufRead,BufNewFile {*.md,*.mkd,*.markdown} set ft=markdown
 au BufRead,BufNewFile {*.gmk,*.gmake,*.gnumake} set ft=make
 
 " =====================================================================
+" Trailing whitespace
+" Highlight it (can also use c_space_errors, but we want to apply it to
+" pretty much everything for now)
+" See http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" Note though that double highlight seems to be needed to make highlight
+" known and to prvent subsequent colorscheme deletion.
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Remove it automatically for subset of filetypes
+autocmd FileType c,cpp,cmake,python,rst,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" =====================================================================
 " Local setup - only works because we source this file from the main
 " vimrc file.
 "
