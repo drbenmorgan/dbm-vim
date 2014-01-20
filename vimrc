@@ -61,7 +61,7 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Remove it automatically for subset of filetypes
-autocmd FileType c,cpp,cmake,python,rst,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,cmake,python,rst,markdown,xml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " =====================================================================
 " Local setup - only works because we source this file from the main
