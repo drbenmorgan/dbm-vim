@@ -31,7 +31,7 @@ backup any existing user vimrc to a file named
     .vimrcTIMEOFBACKUP.dbmbak
 
 where `TIMEOFBACKUP` is a number consisting of the sequence
-DayMonthYearHourMinuteSecond.
+`DayMonthYearHourMinuteSecond`.
 
 TODO: Get vim to run post install to automatically install/update bundles?
 
