@@ -9,7 +9,6 @@ import os.path
 import time
 import shutil
 
-
 vimrc_template="""\" Minimal vimrc, forwarding to dbm-vim vimrc
 \" Generated on : {date}
 \" Git commit   : {git_log}
@@ -19,7 +18,6 @@ if filereadable( dbm_vimrc_impl )
   exec 'source '.dbm_vimrc_impl
 endif
 """
-
 
 def dbm_check_output(*popenargs, **kwargs):
     """Run command with arguments and return its output as a byte string
@@ -33,7 +31,7 @@ def dbm_check_output(*popenargs, **kwargs):
         if cmd is None:
             cmd = popenargs[0]
         raise subprocess.CalledProcessError(retcode, cmd)
-    
+
     return output
 
 
@@ -71,7 +69,7 @@ def make_tempvimrc():
     template_values['git_log'] = git_log('%H')
     template_values['vimrc_impl'] = vimrc_impl()
     file_content = vimrc_template.format(**template_values)
-    
+
     fname = 'test.vimrc'
     f = open(fname,'w')
     f.write(file_content)
