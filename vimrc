@@ -80,7 +80,7 @@ filetype off    " required by Vundle...
 " Setup Vundle's local repository for bundles, and clone Vundle itself
 " if we don't have it already
 let vundle_root = '~/.vundle/bundles'
-let vundle_git  = 'http://github.com/gmarik/vundle.git'
+let vundle_git  = 'http://github.com/gmarik/Vundle.vim.git'
 
 if !isdirectory(expand(vundle_root, 1).'/vundle')
   exec '!git clone '.vundle_git.' '.expand(vundle_root, 1).'/vundle'
@@ -88,56 +88,60 @@ endif
 
 " Start up Vundle
 exec 'set rtp+='.vundle_root.'/vundle'
-call vundle#rc(vundle_root)
+call vundle#begin(vundle_root)
 
 " List my bundles
 " Let Vundle manage Vundle - required
-Bundle vundle_git
+Plugin 'gmarik/Vundle.vim'
 
 " Snipmate
-Bundle "msanders/snipmate.vim.git"
+Plugin 'msanders/snipmate.vim'
 let snip_name=substitute(system("git config --get user.name"), "\n", "", "g")
 let snip_mail=substitute(system("git config --get user.email"), "\n", "", "g")
 let g:snips_author=snip_name.' <'.snip_mail.'>'
 
-
 " My Snipmate extensions
-Bundle "drbenmorgan/dbm-snippets.vim.git"
+Plugin 'drbenmorgan/dbm-snippets.vim'
 
 " Softblue colorscheme
-Bundle "softblue"
+Plugin 'softblue'
 
 " jellybeans colorscheme
-Bundle "nanotech/jellybeans.vim"
+Plugin 'nanotech/jellybeans.vim'
 
 " zenburn colorscheme
-Bundle "Zenburn"
+Plugin 'Zenburn'
 
 " Solarized colorscheme
-Bundle "altercation/vim-colors-solarized.git"
+Plugin 'altercation/vim-colors-solarized'
 
 " ConqueShell terminal emulator
-Bundle "Conque-Shell"
+Plugin 'Conque-Shell'
 
 " SuperTab insert mode completions
-Bundle "ervandew/supertab"
+Plugin 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
 
 " Google style indentation for C++
 " Use iveney's fork which renames the plugin correctly!
-Bundle "iveney/google.vim"
+Plugin 'iveney/google.vim'
 
 " Tim Pope's fugitive plugin for git
-Bundle "tpope/vim-fugitive.git"
+Plugin 'tpope/vim-fugitive'
 
 " Tim Pope's markdown syntax highlighting
-Bundle "tpope/vim-markdown.git"
+Plugin 'tpope/vim-markdown'
 
 " vim-pandoc for writing and editing documents in pandoc markdown
-Bundle "vim-pandoc/vim-pandoc.git"
-let g:pandoc_no_folding = 1
+" Only on vim 7.4
+if v:version > 703
+  Plugin 'vim-pandoc/vim-pandoc'
+  let g:pandoc_no_folding = 1
+endif
 
-filetype plugin indent on    " required by Vundle...
+" Required end-of-setup for vundle
+call vundle#end()
+filetype plugin indent on
 
 " =====================================================================
 " Colorscheme defaults - after bundles because chosen schemes are in
